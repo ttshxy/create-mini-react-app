@@ -6,16 +6,24 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 let devConfig = {
   mode: 'development',
-  module: {},
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        use: ['file-loader'],
+      },
+    ],
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
+    progress: true,
     hot: true,
     overlay: true,
     open: true,
     publicPath: '/',
     host: 'localhost',
-    port: '3000',
+    port: '8080',
     proxy: {
       '/api': {
         target: 'http://192.168.30.33:8080',
@@ -26,9 +34,13 @@ let devConfig = {
     },
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      statsOptions: { source: false },
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-  ], // 替换插件],
+  ],
 };
 module.exports = merge(baseConfig, devConfig);

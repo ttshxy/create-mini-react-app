@@ -1,13 +1,11 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import { Button } from 'antd';
 import './style/index.css'; // 引入样式文件
 import './style/index.less';
-import test from '@/test';
-const sum = (a, b) => {
-  return a + b;
-};
-function createElement() {
-  let div = document.createElement('div');
-  div.innerHTML = _.join(['my', 'name', 'is', 'leo1112223'], '');
-  div.className = 'box';
-  return div;
+
+function App() {
+  return <Button type="primary">Primary</Button>;
 }
-document.body.appendChild(createElement());
+ReactDom.render(<App />, document.getElementById('root'));
+//document.body.appendChild(createElement());
