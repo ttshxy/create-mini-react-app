@@ -24,14 +24,15 @@ let devConfig = {
     publicPath: '/',
     host: 'localhost',
     port: '8080',
-    proxy: {
-      '/api': {
-        target: 'http://192.168.30.33:8080',
-        pathRewrite: {
-          '^api': '/mock/api',
-        },
-      },
-    },
+    historyApiFallback: true, // 解决react-router刷新找不到页面
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://192.168.30.33:8080',
+    //     pathRewrite: {
+    //       '^api': '/mock/api',
+    //     },
+    //   },
+    // },
   },
   plugins: [
     new BundleAnalyzerPlugin({

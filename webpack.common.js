@@ -2,10 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 const HappyPack = require('happypack');
 const baseConfig = {
-  mode: 'development',
-  entry: ['./src/index.js'],
+  entry: {
+    index: path.join(__dirname, 'src/index.js'),
+  },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -15,10 +17,7 @@ const baseConfig = {
       '@': path.resolve(__dirname, 'src/'),
     },
   },
-  externals: {
-    jquery: 'jQuery',
-    lodash: '_',
-  },
+  externals: {},
   module: {
     rules: [
       {
@@ -52,7 +51,7 @@ const baseConfig = {
         //loader: 'happypack/loader?id=babel',
         loader: ['babel-loader?cacheDirectory'],
         include: path.join(__dirname, 'src'),
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
       },
     ],
   },
@@ -62,7 +61,6 @@ const baseConfig = {
       filename: 'css/[name].[hash].css', // 最终输出的文件名
       chunkFilename: '[id].[hash].css',
     }),
-
     // 动态添加html
     new HtmlWebpackPlugin({
       filename: 'index.html', // 最终生成的文件名
@@ -75,10 +73,17 @@ const baseConfig = {
     //   loaders: ['babel-loader?cacheDirectory'],
     // }),
   ],
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all', // 所有的 chunks 代码公共的部分分离出来成为一个单独的文件
-  //   },
-  // },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          //minChunks: 2, // 引入两次及以上被打包
+          test: /[\\/]node_modules[\\/](react|react-dom|axios)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 };
 module.exports = baseConfig;
