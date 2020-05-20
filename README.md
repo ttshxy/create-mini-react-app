@@ -87,7 +87,7 @@ yarn analyze
 
 使用yarn analyze分析打包生成的文件大小,便于性能调优
 
-!(https://tva1.sinaimg.cn/large/007S8ZIlgy1geyxxt4n28j31360hjn0g.jpg)
+![](https://tva1.sinaimg.cn/large/007S8ZIlgy1geyyzfidhej31360hjjuo.jpg)
 
 将代码上传服务器之前记得关闭分析配置选项
 
