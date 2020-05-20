@@ -69,9 +69,9 @@ yarn dev
 
 - 打包速度较慢时一键开启happypack多线程打包
 
-  <video src="https://tts-blog.oss-cn-shenzhen.aliyuncs.com/QQ20200520-153631-HD.mp4?Expires=1589960747&OSSAccessKeyId=TMP.3KkK2xP8j8GRvWfyUbRBWcj3nTSTauVhDUA2Gcqi1epgSbZw4dpvKsjhMErRRBQnFL4cfLVEp3dKsRPAxmvwP3sAVcUyHy&Signature=SuYxaADlnfKU6%2FldwLcJ91sLh7Y%3D"></video>
+  ![](https://tva1.sinaimg.cn/large/007S8ZIlgy1geyyvzgqa3g30ic0b6h3c.gif)
 
-react-router按需加载，当点击Admin时才请求Admin相关文件
+  react-router按需加载，当点击Admin时才请求Admin相关文件
 
 ## 打包发布
 
@@ -87,7 +87,7 @@ yarn analyze
 
 使用yarn analyze分析打包生成的文件大小,便于性能调优
 
-![https://tva1.sinaimg.cn/large/007S8ZIlgy1geyxwfq79tj31360hjdjp.jpg](https://tva1.sinaimg.cn/large/007S8ZIlgy1geyxxt4n28j31360hjn0g.jpg)
+!(https://tva1.sinaimg.cn/large/007S8ZIlgy1geyxxt4n28j31360hjn0g.jpg)
 
 将代码上传服务器之前记得关闭分析配置选项
 
