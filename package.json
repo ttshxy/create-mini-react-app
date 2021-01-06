@@ -28,7 +28,7 @@
     "@babel/runtime": "^7.9.6",
     "@babel/runtime-corejs2": "^7.9.6",
     "antd": "^4.2.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
